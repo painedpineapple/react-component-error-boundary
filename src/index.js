@@ -1,17 +1,35 @@
-import React from 'react';
-import { render } from 'react-dom';
-import Hello from './Hello';
+import React from 'react'
+import { render } from 'react-dom'
+//
+import ErrorBoundary from './ErrorBoundary'
 
-const styles = {
-  fontFamily: 'sans-serif',
-  textAlign: 'center',
-};
+class Child extends React.Component {
+  state = {
+    errorMe: false,
+  }
+  render() {
+    return (
+      <button
+        onClick={() =>
+          this.setState(prevState => ({
+            ...prevState,
+            errorMe: true,
+          }))
+        }
+      >
+        Click to break me
+        {/* eslint-disable-next-line react/jsx-no-undef */}
+        {this.state.errorMe ? <IDontExist /> : <span />}
+      </button>
+    )
+  }
+}
 
 const App = () => (
-  <div style={styles}>
-    <Hello name="CodeSandbox" />
-    <h2>Start editing to see some magic happen {'\u2728'}</h2>
-  </div>
-);
+  <ErrorBoundary>
+    <h2>I'm wrapped in an ErrorBoundary</h2>
+    <Child />
+  </ErrorBoundary>
+)
 
-render(<App />, document.getElementById('root'));
+render(<App />, document.getElementById('root'))
