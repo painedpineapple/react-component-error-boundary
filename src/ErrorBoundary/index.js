@@ -4,7 +4,7 @@ import Raven from 'raven-js'
 //
 import Styled from './index.style'
 
-export default class ErrorBoundary extends React.Component<
+export class ErrorBoundary extends React.Component<
   {
     children: React.Node,
     options?: {
@@ -18,7 +18,6 @@ export default class ErrorBoundary extends React.Component<
   }
 
   componentDidCatch(error: any, info: any) {
-    console.log('in componentDidCatch')
     this.setState(() => {
       return {
         hasError: true,
