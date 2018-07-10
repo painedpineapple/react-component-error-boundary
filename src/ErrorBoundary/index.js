@@ -4,7 +4,7 @@ import Raven from 'raven-js'
 //
 import Styled from './index.style'
 
-export default class ErrorBoundary extends React.Component<
+export class ErrorBoundary extends React.Component<
   {
     children: any,
     styles?: {}, // Emotion style object

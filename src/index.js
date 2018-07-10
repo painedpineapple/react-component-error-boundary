@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 //
-import ErrorBoundary from './ErrorBoundary'
+import { ErrorBoundary } from './ErrorBoundary'
 
 class Child extends React.Component {
   state = {
