@@ -6,10 +6,8 @@ import Styled from './index.style'
 
 export class ErrorBoundary extends React.Component<
   {
-    children: React.Node,
-    options?: {
-      styles?: {}, // Emotion style object
-    },
+    children: any,
+    styles?: {}, // Emotion style object
   },
   { hasError: boolean },
 > {
@@ -41,11 +39,13 @@ export class ErrorBoundary extends React.Component<
   }
 
   render() {
+    const { styles, ...props } = this.props
     if (this.state.hasError) {
       return (
         <Styled
+          {...props}
           data-testid="component-error-boundary"
-          options={this.props.options || {}}
+          customStyles={styles || {}}
         >
           <div>
             <h2>Sorry, something went wrong.</h2>
