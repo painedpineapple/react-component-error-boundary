@@ -1,19 +1,19 @@
-import React from 'react'
-import { render } from 'react-dom'
+import React from "react";
+import { render } from "react-dom";
 //
-import ErrorBoundary from './ErrorBoundary'
+import { ErrorBoundary } from "./ErrorBoundary";
 
 class Child extends React.Component {
   state = {
-    errorMe: false,
-  }
+    errorMe: false
+  };
   render() {
     return (
       <button
         onClick={() =>
           this.setState(prevState => ({
             ...prevState,
-            errorMe: true,
+            errorMe: true
           }))
         }
       >
@@ -21,7 +21,7 @@ class Child extends React.Component {
         {/* eslint-disable-next-line react/jsx-no-undef */}
         {this.state.errorMe ? <IDontExist /> : <span />}
       </button>
-    )
+    );
   }
 }
 
@@ -30,6 +30,6 @@ const App = () => (
     <h2>I'm wrapped in an ErrorBoundary</h2>
     <Child />
   </ErrorBoundary>
-)
+);
 
-render(<App />, document.getElementById('root'))
+render(<App />, document.getElementById("root"));

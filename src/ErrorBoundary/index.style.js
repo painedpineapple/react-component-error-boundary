@@ -1,6 +1,6 @@
 import styled from 'react-emotion'
 
-export default styled('div')(({ options: o }) => ({
+export default styled('div')(({ customStyles }) => ({
   backgroundColor: '#f8ebe6',
   boxShadow:
     'inset 0 0 0 0 transparent, 0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 3px 0 rgba(63, 63, 68, 0.15)',
@@ -31,5 +31,5 @@ export default styled('div')(({ options: o }) => ({
     borderBottom: '1px solid rgb(222,54,24)',
   },
 
-  ...o.styles,
+  ...customStyles,
 }))
